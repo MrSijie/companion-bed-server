@@ -8,7 +8,7 @@
         <location type="git" url="https://github.com/${component.'@group'}/${component.'@name'}.git"/>
     </repository>
 
-    <runtime name="moqui-runtime-refit" group="MrSijie" version="2.1.1" branch="master"/>
+    <runtime name="companion-bed-runtime" group="MrSijie" version="2.1.1" branch="master"/>
 
 
 </addons>
