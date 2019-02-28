@@ -4,6 +4,8 @@ import org.apache.shiro.authc.AuthenticationException
 import org.apache.shiro.authc.AuthenticationInfo
 import org.apache.shiro.authc.AuthenticationToken
 import org.apache.shiro.authc.SaltedAuthenticationInfo
+import org.apache.shiro.authc.SimpleAuthenticationInfo
+import org.apache.shiro.util.SimpleByteSource
 import org.moqui.entity.EntityValue
 import org.moqui.impl.context.ExecutionContextImpl
 
@@ -24,7 +26,9 @@ class NoPwdRealm extends MoquiShiroRealm {
 
             // create the salted SimpleAuthenticationInfo object
 
-
+            info = new SimpleAuthenticationInfo(username, newUserAccount.currentPassword,
+                    newUserAccount.passwordSalt ? new SimpleByteSource((String) newUserAccount.passwordSalt) : null,
+                    realmName)
 
             loginPostPassword(eci, newUserAccount)
 
